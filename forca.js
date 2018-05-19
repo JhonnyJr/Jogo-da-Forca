@@ -21,7 +21,7 @@
             //Prompt para o jogador adivinhar 
             var adivinhar = prompt("Adivinhe uma letra ou clique em 'Cancelar' para parar o jogo.");
             if (prompt === null) {
-                //Leave the game - Sair do jogo
+                //Sair do jogo
                 break;
             } else if (adivinhar.length !== 1) {
                 // Caso não digite nada
