@@ -39,7 +39,7 @@ function game() {
       }
     }
     //Fim do loop de jogo
-    document.getElementById('win').innerText = "Parabens! A palavra eh:" + palavra + "!";
+    document.getElementById('win').innerHTML = "Parabens! A palavra eh:" + palavra + "!";
 
   }
 }
