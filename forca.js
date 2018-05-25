@@ -1,5 +1,5 @@
 //Criando um "vetor" para as palavras. Para adicionar palavras é só colocar a palavra desejada: ( "palavra", )
-var palavras = ["carro", "pneumoultramicroscopicosilicovulcanoconiose", "comedores de batata profissionais"];
+var palavras = [ "pneumoultramicroscopicosilicovulcanoconiose", "comedores de batata profissionais"];
 
 //Esoclhendo uma palavra aleatória, dentre as opções da variável "palavras"
 var palavra = palavras[Math.floor(Math.random() * palavras.length)];
