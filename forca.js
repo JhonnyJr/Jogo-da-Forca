@@ -1,5 +1,5 @@
 //Criando um "vetor" para as palavras. Para adicionar palavras é só colocar a palavra desejada: ( "palavra", )
-var palavras = [ "pneumoultramicroscopicosilicovulcanoconiose", "comedores de batata profissionais"];
+var palavras = [ "queijo", "parede", "tigela", "mercado", "desejo"];
 
 //Esoclhendo uma palavra aleatória, dentre as opções da variável "palavras"
 var palavra = palavras[Math.floor(Math.random() * palavras.length)];
@@ -9,7 +9,7 @@ console.log(palavra);
 //Usando "_" indicando quantas letras a palavra possui, como no jogo da forca tradicional.
 var resposta = [];
 for (var i = 0; i < palavra.length; i++) {
-  resposta[i] = "_";
+  resposta[i] = "|";
 }
 
 var letrasRestantes = palavra.length;
