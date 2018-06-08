@@ -9,7 +9,7 @@ console.log(palavra);
 //Usando "_" indicando quantas letras a palavra possui, como no jogo da forca tradicional.
 var resposta = [];
 for (var i = 0; i < palavra.length; i++) {
-  resposta[i] = "|";
+  resposta[i] = "_";
 }
 
 var letrasRestantes = palavra.length;
