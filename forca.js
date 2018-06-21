@@ -1,46 +1,31 @@
-//Criando um "vetor" para as palavras. Para adicionar palavras é só colocar a palavra desejada: ( "palavra", )
-var palavras = [ "queijo", "parede", "tigela", "mercado", "desejo"];
+<!DOCTYPE html>
+<html>
 
-//Esoclhendo uma palavra aleatória, dentre as opções da variável "palavras"
-var palavra = palavras[Math.floor(Math.random() * palavras.length)];
-console.log(palavra);
-
-//Vetor para resposta
-//Usando "_" indicando quantas letras a palavra possui, como no jogo da forca tradicional.
-var resposta = [];
-for (var i = 0; i < palavra.length; i++) {
-  resposta[i] = "_";
-}
-
-var letrasRestantes = palavra.length;
-
-//Loop do jogo
-function game() {
-  while (letrasRestantes > 0) {
-    //Mostrar progresso do jogador
-
-    alert("Quantidade de letras restante:\n" + resposta.join(" "));
-
-    //Prompt para o jogador adivinhar  
-    var adivinhar = prompt("Adivinhe uma letra ou clique em 'Cancelar' para parar o jogo.");
-    if (adivinhar === null) {
-      //Sair do jogo
-      break;
-    } else if (adivinhar.length !== 1) {
-      // Caso não digite nada
-      alert("Adivinhe uma letra por vez.");
-    } else {
-      //Atualizar rodada com um palpite
-      for (var j = 0; j < palavra.length; j++) {
-        if (palavra[j] === adivinhar) {
-          resposta[j] = adivinhar;
-          letrasRestantes--;
-        }
-      }
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jogo da Forca - Hangman Game</title>
+  <script type="text/javascript" src="forca.js"></script>
+  </head>
+  <style>
+    body {
+      max-width: 500px;
+      margin: auto;
     }
-    //Fim do loop de jogo
-    document.getElementById('win').innerHTML = "Parabens! A palavra eh:" + palavra + "!";
 
-  }
-}
-game();
+  </style>
+
+  <body>
+    <!-- Colocando o conteúdo no meio usando a tag IMPROVISO -->
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <h1>Javascript Jogo da Forca</h1>
+    <p>Simples jogo da forca desenvolvido em JavaScript</p>
+    <input type="text" id="word" onfocus="this.value=''"><button onclick="game()">Chute</button>
+    <div id="output"></div> <br>
+    <button type="submit" onclick="javascript:location.reload()">Reiniciar</button>
+    <div id="win"></div>
+    <script src="forca.js"></script>
+  </body>
+
+</html>
