@@ -1,31 +1,45 @@
-<!DOCTYPE html>
-<html>
+//Criando um "vetor" para as palavras. Para adicionar palavras é só colocar a palavra desejada: ( "palavra", )
+var palavras = ["carro", "queijo", "jogo", "tigela", "batata", "janela", "parede"];
 
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jogo da Forca - Hangman Game</title>
-  <script type="text/javascript" src="forca.js"></script>
-  </head>
-  <style>
-    body {
-      max-width: 500px;
-      margin: auto;
+//Esoclhendo uma palavra aleatória, dentre as opções da variável "palavras" 
+var palavra = palavras[Math.floor(Math.random() * palavras.length)];
+
+//Vetor para resposta
+//Usando "_" indicando quantas letras a palavra possui, como no jogo da forca tradicional.
+var resposta = [];
+for (var i = 0; i < palavra.length; i++) {
+  resposta[i] = "_";
+}
+
+var letrasRestantes = palavra.length;
+
+//Loop do jogo
+function game() {
+  console.log(palavra);
+
+  
+
+  //Prompt para o jogador adivinhar 
+  var adivinhar = document.getElementById("word").value;
+
+  if (adivinhar.length >= 2) {
+    alert("Adivinhe uma letra por vez.");
+    return;
+  }
+  //Atualizar rodada com um palpite
+  for (var j = 0; j < palavra.length; j++) {
+    if (palavra[j] === adivinhar) {
+      resposta[j] = adivinhar;
+      letrasRestantes--;
     }
-
-  </style>
-
-  <body>
-    <!-- Colocando o conteúdo no meio usando a tag IMPROVISO -->
-    <br><br><br><br><br><br><br><br><br><br><br><br>
-    <h1>Javascript Jogo da Forca</h1>
-    <p>Simples jogo da forca desenvolvido em JavaScript</p>
-    <input type="text" id="word" onfocus="this.value=''"><button onclick="game()">Chute</button>
-    <div id="output"></div> <br>
-    <button type="submit" onclick="javascript:location.reload()">Reiniciar</button>
-    <div id="win"></div>
-    <script src="forca.js"></script>
-  </body>
-
-</html>
+  }
+  //Mostrar progresso do jogador
+  document.getElementById("output").innerText =
+    "Quantidade de letras restante:\n" + resposta.join(" ");
+  // Parabeniza o usuário caso a palavra esteja correta
+  if (!resposta.includes("_")) {
+    document.getElementById("win").innerText =
+      "Correto! A palavra é: " + palavra + "!";
+  }
+}
+game();
